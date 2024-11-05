@@ -31,15 +31,6 @@ def download_from_s3(s3_client, bucket_name, s3_path, local_path):
     except Exception as e:
         print(f"S3 다운로드 중 예외 발생: {e}")
 
-# S3에 파일 업로드 함수
-def upload_to_s3(s3_client, file_paths, s3_path, bucket_name):
-    for file_path in file_paths:
-        try:
-            s3_client.upload_file(file_path, bucket_name, f'{s3_path}/{os.path.basename(file_path)}')
-            print(f"{file_path} 파일이 S3의 {s3_path} 폴더에 업로드되었습니다.")
-        except Exception as e:
-            print(f"{file_path} 업로드 중 오류 발생: {e}")
-
 # 액세스 토큰 요청 함수
 def get_access_token(client_id, client_secret):
     endpoint = "https://accounts.spotify.com/api/token"

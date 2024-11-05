@@ -46,10 +46,6 @@ spotify_password = get_secret('SPOTIFY_PASSWORD')
 client_id = get_secret('CLIENT_ID')
 client_secret = get_secret('CLIENT_SECRET')
 
-# 메인 코드 실행
-access_token = get_access_token(client_id, client_secret)
-headers = {"Authorization": f"Bearer {access_token}"}
-
 # 작업 전 data_track.csv 다운로드 수행
 bucket_name = '7igma-s3'
 track_data_s3_path = 'music/track_data/track_data.csv'
@@ -64,16 +60,20 @@ s3_client = boto3.client(
 
 def positive_int(value):
     ivalue = int(value)
-    if ivalue < 3:
-        raise argparse.ArgumentTypeError(f"최소값은 3이어야 합니다. 입력된 값: {value}")
+    if ivalue < 2:
+        raise argparse.ArgumentTypeError(f"최소값은 2입니다. 입력된 값: {value}")
     return ivalue
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--past_days', type=positive_int, default=89, help='과거 며칠 동안의 데이터를 가져올지 설정합니다. 최소값은 3입니다.')
+    parser.add_argument('--past_days', type=positive_int, default=89, help='과거 며칠 동안의 데이터를 가져올지 설정합니다. 최소값은 2입니다.')
     args = parser.parse_args()
+    
+    # 메인 코드 실행
+    access_token = get_access_token(client_id, client_secret)
+    headers = {"Authorization": f"Bearer {access_token}"}
 
-    # 설정 파일 로드
+    # # 설정 파일 로드
     config = load_config()
 
     # 기간 및 국가 설정 가져오기

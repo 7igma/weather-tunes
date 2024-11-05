@@ -1,0 +1,19 @@
+{
+    "countries": ["kr","jp", "us", "gb", "au", "br"],
+    "country_map": {
+        "kr": "korea",
+        "jp": "japan",
+        "us": "usa",
+        "gb": "uk",
+        "au": "australia",
+        "br": "brazil"
+    },
+    "coordinates": {
+        "korea": [37.5665, 126.978],
+        "brazil": [-15.7939, -47.8828],
+        "japan": [35.6528, 139.8395],
+        "usa": [38.8951, -77.0363],
+        "australia": [-35.2835, 149.1281],
+        "uk": [51.5074, -0.1278]
+    }
+}

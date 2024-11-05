@@ -1,1 +1,4 @@
 secrets.json
+.cache.sqlite
+__pycache__
+*.pyc

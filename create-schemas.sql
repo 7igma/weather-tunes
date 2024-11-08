@@ -1,8 +1,0 @@
--- 0. dev 데이터베이스를 사용
-USE DATABASE dev;
-
--- 1. 4개 스키마 생성
-CREATE SCHEMA IF NOT EXISTS raw_data;
-CREATE SCHEMA IF NOT EXISTS analytics;
-CREATE SCHEMA IF NOT EXISTS reporting;
-CREATE SCHEMA IF NOT EXISTS test;
